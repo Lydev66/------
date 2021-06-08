@@ -1,0 +1,455 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>商品管理</title>
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</head>
+
+<body>
+<header class="am-topbar admin-header">
+    <div class="am-topbar-brand"><img src="assets/i/logo.png"></div>
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+        <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
+            <li class="am-dropdown tognzhi" data-am-dropdown>
+                <button class="am-btn am-btn-primary am-dropdown-toggle am-btn-xs am-radius am-icon-bell-o" data-am-dropdown-toggle> 消息管理<span class="am-badge am-badge-danger am-round">6</span></button>
+                <ul class="am-dropdown-content">
+                    <li class="am-dropdown-header">所有消息都在这里</li>
+                    <li><a href="#">未发货订单<span class="am-badge am-badge-danger am-round">556</span></a></li>
+                    <li><a href="#">低库存产品</a></li>
+                    <li><a href="#">信息反馈<span class="am-badge am-badge-danger am-round">69</span></a></a></li>
+                </ul>
+            </li>
+            <li class="kuanjie">
+                <a href="个人中心.html">个人中心</a>
+                <a href="#">退出系统</a>
+            </li>
+            <li class="soso">
+                <p>
+                    <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">
+                        <option value="b">全部</option>
+                        <option value="o">产品</option>
+                        <option value="o">会员</option>
+                    </select>
+                </p>
+                <p class="ycfg"><input type="text" class="am-form-field am-input-sm" placeholder="请输入要查找的关键字" /></p>
+                <p><button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button></p>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="am-cf admin-main">
+    <div class="nav-navicon admin-main admin-sidebar">
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：李~</div>
+        <div class="sideMenu">
+            <h3 class="am-icon-flag"><em></em> <a href="商品列表.html">商品管理</a></h3>
+            <ul>
+                <li><a href="商品列表.html">商品列表</a></li>
+                <li><a href="添加新商品.html">添加商品</a></li>
+                <li><a href="商品分类.html">商品分类</a></li>
+                <li><a href="用户评论.html">用户评论</a></li>
+                <li><a href="库存管理.html">库存管理</a></li>
+            </ul>
+            <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
+            <ul>
+                <li><a href="订单列表.html">订单列表</a></li>
+                <li><a href="添加订单.html">添加订单</a></li>
+                <li><a href="编辑订单.html">编辑</a></li>
+
+            </ul>
+            <h3 class="am-icon-users"><em></em> <a href="#">会员管理</a></h3>
+            <ul>
+                <li><a href="会员列表.html">会员列表</a></li>
+                <li><a href="添加会员信息.html">添加会员</a></li>
+                <li><a href="">删除会员</a></li>
+                <li><a href="修改会员信息.html">修改会员信息</a></li>
+            </ul>
+            <h3 class="am-icon-volume-up"><em></em> <a href="#">信息通知</a></h3>
+            <ul>
+                <li><a href="信息通知.html">站内消息/留言</a></li>
+                <li><a href="信息通知.html">客服</a></li>
+            </ul>
+            <h3 class="am-icon-gears"><em></em> <a href="系统设置.html">系统设置</a></h3>
+            <ul>
+                <li><a href="">上传/下载</a></li>
+                <li><a href="">权限</a></li>
+            </ul>
+        </div>
+        <!-- sideMenu End -->
+
+        <script type="text/javascript">
+            jQuery(".sideMenu").slide({
+                titCell: "h3", //鼠标触发对象
+                targetCell: "ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+                delayTime: 500, //效果时间
+                triggerTime: 150, //鼠标延迟触发时间（默认150）
+                defaultPlay: true,//默认是否执行效果（默认true）
+                returnDefault: false //鼠标从.sideMen移走后返回默认状态（默认false）
+            });
+        </script>
+    </div>
+    <div class=" admin-content">
+        <div class="daohang">
+            <ul>
+                <li>
+                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">首页</button>
+                </li>
+                <li>
+                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">
+                        帮助中心<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">
+                        产品管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="am-popup am-popup-inner" id="my-popup">
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title">添加商品一级分类</h4>
+                <span data-am-modal-close
+                      class="am-close">&times;</span></div>
+            <div class="am-popup-bd">
+                <form class="am-form tjlanmu">
+                    <div class="am-form-group">
+                        <div class="zuo">商品名称：</div>
+                        <div class="you">
+                            <input type="email" class="am-input-sm"  placeholder="请输入标题">
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="zuo">商品关键词：</div>
+                        <div class="you">
+                            <input type="password" class="am-input-sm"  placeholder="请输入关键词">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品描述：</div>
+                        <div class="you">
+                            <textarea class="" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" >
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">简介：</div>
+                        <div class="you">
+                            <textarea class="" rows="2" ></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">状态：</div>
+                        <div class="you" style="margin-top: 3px;">
+                            <label class="am-checkbox-inline">
+                                <input type="checkbox" value="option1">
+                                显示 </label>
+                            <label class="am-checkbox-inline">
+                                <input type="checkbox" value="option2">
+                                隐藏 </label>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="you">
+                            <p>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="am-popup am-popup-inner" id="my-popups">
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title">详细库存信息（这里包含 销量 库存 损耗， 客服备注 销售的全部金额）</h4>
+                <span data-am-modal-close class="am-close">&times;</span></div>
+            <div class="am-popup-bd">
+                <form class="am-form tjlanmu">
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">销量：</div>
+                        <div class="you">
+                            245234523452
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo"> 库存：</div>
+                        <div class="you">
+                            234523452
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo"> 损耗：</div>
+                        <div class="you">
+                            234523452
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo"> 购买信息：</div>
+                        <div class="you">
+                            234523452
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo"> 销售金额：</div>
+                        <div class="you">
+                            234523452
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo"> 成本：</div>
+                        <div class="you">
+                            234523452
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo"> 利润：</div>
+                        <div class="you">
+                            234523452
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="am-popup am-popup-inner" id="my-popupss">
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title">复制栏目</h4>
+                <span data-am-modal-close class="am-close">&times;</span></div>
+            <div class="am-popup-bd">
+                <form class="am-form tjlanmu">
+                    <div class="am-form-group">
+                        <div class="zuo">复制到：</div>
+                        <div class="you">
+
+                            <select data-am-selected="{btnWidth: 200, btnSize: 'sm', btnStyle: 'danger'}">
+                                <option value="a">Apple</option>
+                                <option value="b">Banana</option>
+                                <option value="o">Orange</option>
+                                <option value="m">Mango</option>
+                            </select>
+                            顶级栏目选默认
+
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="zuo">商品名称：</div>
+                        <div class="you">
+                            <input type="email" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入标题">
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="zuo">商品关键词：</div>
+                        <div class="you">
+                            <input type="password" class="am-input-sm" id="doc-ipt-pwd-1" placeholder="请输入关键词">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品描述：</div>
+                        <div class="you">
+                            <textarea class="" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" id="doc-ipt-file-1">
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品描述：</div>
+                        <div class="you">
+                            <textarea class="" rows="2" ></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">状态：</div>
+                        <div class="you" style="margin-top: 3px;">
+                            <label class="am-checkbox-inline">
+                                <input type="checkbox" value="option1">
+                                显示 </label>
+                            <label class="am-checkbox-inline">
+                                <input type="checkbox" value="option2">
+                                隐藏 </label>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="you">
+                            <p>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="admin-biaogelist">
+            <div class="listbiaoti am-cf">
+                <ul class="am-icon-flag on">
+                    库存管理
+                </ul>
+                <dl class="am-icon-home" style="float: right;">
+                    当前位置： 首页 > <a href="#">商品列表</a>
+                </dl>
+                <dl>
+                    <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"
+                            data-am-modal="{target: '#my-popup'}"> 给商品添加评论
+                    </button>
+                </dl>
+                <!--data-am-modal="{target: '#my-popup'}" 弹出层 ID  弹出层 190行 开始  271行结束-->
+
+            </div>
+            <form class="am-form am-g">
+                <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped am-table-hover">
+                    <thead>
+                    <tr class="am-success">
+                        <th class="table-check"><input type="checkbox"/></th>
+                        <th class="table-id">排序</th>
+                        <th class="table-id am-text-center">商品编号ID</th>
+                        <th class="table-title">商品名称</th>
+                        <th class="table-type">商品价格</th>
+                        <th class="table-type">商品数量</th>
+                        <th class="table-type">商品分类</th>
+                        <th class="table-type">商品描述</th>
+                        <th class="table-author am-hide-sm-only">商品状态</th>
+                        <th width="125px" class="table-set">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
+                        <td>A001</td>
+                        <td>iPhone11</td>
+                        <td>$4999</td>
+                        <td>库存299</td>
+                        <td>手机</td>
+                        <td>美国,数码科技产品</td>
+                        <td>销售中</td>
+                        <td>
+                            <a href="delete.php">删除</a>
+                            <a href="#">|</a>
+                            <a href="edit.html">编辑</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
+                        <td>A001</td>
+                        <td>iPhone11</td>
+                        <td>$4999</td>
+                        <td>库存299</td>
+                        <td>手机</td>
+                        <td>美国,数码科技产品</td>
+                        <td>销售中</td>
+                        <td>
+                            <a href="delete.php">删除</a>
+                            <a href="#">|</a>
+                            <a href="edit.html">编辑</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
+                        <td>A001</td>
+                        <td>iPhone11</td>
+                        <td>$4999</td>
+                        <td>库存299</td>
+                        <td>手机</td>
+                        <td>美国,数码科技产品</td>
+                        <td>销售中</td>
+                        <td>
+                            <a href="delete.php">删除</a>
+                            <a href="#">|</a>
+                            <a href="edit.html">编辑</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
+                        <td>A001</td>
+                        <td>iPhone11</td>
+                        <td>$4999</td>
+                        <td>库存299</td>
+                        <td>手机</td>
+                        <td>美国,数码科技产品</td>
+                        <td>销售中</td>
+                        <td>
+                            <a href="delete.php">删除</a>
+                            <a href="#">|</a>
+                            <a href="edit.html">编辑</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
+                        <td>A001</td>
+                        <td>iPhone11</td>
+                        <td>$4999</td>
+                        <td>库存299</td>
+                        <td>手机</td>
+                        <td>美国,数码科技产品</td>
+                        <td>销售中</td>
+                        <td>
+                            <a href="delete.php">删除</a>
+                            <a href="#">|</a>
+                            <a href="edit.html">编辑</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
+                        <td>A001</td>
+                        <td>iPhone11</td>
+                        <td>$4999</td>
+                        <td>库存299</td>
+                        <td>手机</td>
+                        <td>美国,数码科技产品</td>
+                        <td>销售中</td>
+                        <td>
+                            <a href="delete.php">删除</a>
+                            <a href="#">|</a>
+                            <a href="edit.html">编辑</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="am-btn-group am-btn-group-xs">
+                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 删除</button>
+                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 上架</button>
+                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 下架</button>
+                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
+                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 移动
+                    </button>
+                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除
+                    </button>
+                </div>
+                <ul class="am-pagination am-fr">
+                    <li class="am-disabled"><a href="#">«</a></li>
+                    <li class="am-active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">»</a></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
